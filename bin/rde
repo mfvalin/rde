@@ -1,0 +1,12 @@
+#!/bin/ksh
+DESC='RPN Code Development Environment dispatcher'
+USAGE="USAGE: ${MYSELF} TOOL [OPTIONS]"
+
+prefix=${0##*/}
+
+if [[ x"$(which $prefix$1 2>/dev/null)" != x && x"$1" != x ]] ; then
+   cmd=$1 ; shift
+   $prefix$cmd "$@"
+else
+   ${prefix}help
+fi
